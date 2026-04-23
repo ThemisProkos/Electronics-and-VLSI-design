@@ -5,7 +5,7 @@ This project focuses on the DC analysis and characterization of **nMOS** and **p
 
 ## Technical Specifications
 The analysis covers three distinct fabrication technologies with their respective supply voltages ($V_{DD}$):
-***TSMC 0.35 μm** ($V_{DD} = 3.3V$) 
+* **TSMC 0.35 μm** ($V_{DD} = 3.3V$) 
 * **TSMC 0.25 μm** ($V_{DD} = 2.5V$) 
 * **TSMC 180 nm** ($V_{DD} = 1.8V$) 
 
