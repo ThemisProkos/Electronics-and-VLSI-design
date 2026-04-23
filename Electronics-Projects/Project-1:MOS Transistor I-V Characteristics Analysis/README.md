@@ -4,14 +4,14 @@
 This project focuses on the DC analysis and characterization of **nMOS** and **pMOS** transistors using SPICE simulations. The goal is to extract and visualize the current-voltage ($I-V$) relationships ($I_{DS}$ vs $V_{DS}$) across different manufacturing technologies and environmental conditions.
 
 ## Technical Specifications
-The analysis covers three distinct fabrication technologies with their respective supply voltages ($V_{DD}$):
-* **TSMC 0.35 μm** ($V_{DD} = 3.3V$) 
-* **TSMC 0.25 μm** ($V_{DD} = 2.5V$) 
-* **TSMC 180 nm** ($V_{DD} = 1.8V$) 
+The analysis covers three different fabrication technologies. Note that **the SPICE models for each technology are directly embedded within the `.cir` files**, so no external library files are required.
 
-Simulations were performed for two distinct operating temperatures:
-* **27°C** (Nominal) 
-* **70°C** (High Temperature) 
+* **TSMC 0.35 μm** ($V_{DD} = 3.3V$)
+* **TSMC 0.25 μm** ($V_{DD} = 2.5V$) 
+* **TSMC 180 nm** ($V_{DD} = 1.8V$)
+
+The simulations account for temperatures of **27°C** and **70°C**.
+
 
 ## Objectives
 The simulation aims to identify and analyze key transistor behaviors:
@@ -26,15 +26,14 @@ The simulation environment uses a standard configuration to sweep voltages:
 * **Models:** SPICE Level 3 models were used for both NMOS and PMOS devices.
 
 ## Repository Structure
-* `/src`: Contains the SPICE netlists (`.sp`) and LTspice files (`.asc`).
-* `/models`: Includes the TSMC technology library files.
-* `/plots`: Graphical representations of the $I-V$ characteristics exported from the simulator.
-* `/pdf`:Contains the final report of the project.
+* `/simulations`: Contains the SPICE netlist files (`.cir`) and the corresponding plot settings (`.plt`). Note that the TSMC device models are embedded within the `.cir` files .
+* `/plots`: Graphical representations (screenshots) of the $I-V$ characteristics ($I_{DS}$ vs $V_{DS}$) for various $V_{GS}$ values and temperatures.
+* `/report`: Contains the final project report in PDF format, detailing the theoretical analysis and findings.
 
 ## How to Run
-1. Load the simulation files in **LTspice** or any SPICE-compatible simulator.
-2. Ensure the model libraries (e.g., `tsmc035.sp`) are in the correct path or included via the `.INC`.
-3. Run the `.DC` analysis to generate the curves.
+1. Open the `.cir` files directly in **LTspice**.
+2. Click the **Run** button to execute the simulation.
+3. The `.plt` files included in the repository will automatically format the waveform viewer to display the $I_{DS}$ vs $V_{DS}$ curves as intended.
+4. For a detailed analysis of the results, you can refer to the `Final_Report.pdf` located in the root folder.
 
----
 *Note: This project was developed as part of the "Introduction to Electronics" course at the University of Thessaly.*
