@@ -1,7 +1,7 @@
 # MOS Transistor I-V Characteristics Analysis
 
 ## Project Overview
-[cite_start]This project focuses on the DC analysis and characterization of **nMOS** and **pMOS** transistors using SPICE simulations[cite: 36]. [cite_start]The goal is to extract and visualize the current-voltage ($I-V$) relationships ($I_{DS}$ vs $V_{DS}$) across different manufacturing technologies and environmental conditions[cite: 35, 159].
+This project focuses on the DC analysis and characterization of **nMOS** and **pMOS** transistors using SPICE simulations. The goal is to extract and visualize the current-voltage ($I-V$) relationships ($I_{DS}$ vs $V_{DS}$) across different manufacturing technologies and environmental conditions.
 
 ## Technical Specifications
 [cite_start]The analysis covers three distinct fabrication technologies with their respective supply voltages ($V_{DD}$)[cite: 159, 160]:
