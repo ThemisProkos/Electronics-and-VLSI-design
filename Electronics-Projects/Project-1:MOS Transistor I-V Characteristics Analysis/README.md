@@ -29,6 +29,7 @@ The simulation environment uses a standard configuration to sweep voltages:
 * `/src`: Contains the SPICE netlists (`.sp`) and LTspice files (`.asc`).
 * `/models`: Includes the TSMC technology library files.
 * `/plots`: Graphical representations of the $I-V$ characteristics exported from the simulator.
+* `/pdf`:Contains the final report of the project.
 
 ## How to Run
 1. Load the simulation files in **LTspice** or any SPICE-compatible simulator.
