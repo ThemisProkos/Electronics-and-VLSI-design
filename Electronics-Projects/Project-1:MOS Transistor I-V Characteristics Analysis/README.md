@@ -25,7 +25,7 @@ The project analyzes key transistor behaviors:
 All project files are located in this directory for direct access:
 
 * **`*.cir`**: SPICE netlist files containing the circuit description and embedded technology models .
-* **`*.plt`**: Plot settings for LTspice to correctly visualize the I-V curves .
+* **`*.png`**: Plot settings for LTspice to correctly visualize the I-V curves .
 * **`Final_Report.pdf`**: The complete technical report detailing the theoretical analysis and findings.
 * **`*.png` / `*.jpg`**: Screenshots of the simulation plots for quick preview.
 
