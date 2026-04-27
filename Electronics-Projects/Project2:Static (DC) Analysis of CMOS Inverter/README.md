@@ -12,7 +12,7 @@ The project investigates the behavior of a CMOS inverter based on various parame
 ## 📁 Repository Structure
 * `/cir_files`: LTspice circuit schematics and netlists used for DC Sweep and Operating Point (.op) analysis.
 * `/plots`: High-resolution PNG exports of VTC curves, derivatives ($dV_{out}/dV_{in}$), and signal restoration steps.
-* `CMOS_Inverter_Report.pdf`: The complete technical report document (compiled via LaTeX).
+* `Project2:Static (DC) Analysis of CMOS Inverter.pdf`: The complete technical report document (compiled via LaTeX).
 
 ## 🛠 Tools Used
 * **LTspice:** For circuit simulation and data extraction.
