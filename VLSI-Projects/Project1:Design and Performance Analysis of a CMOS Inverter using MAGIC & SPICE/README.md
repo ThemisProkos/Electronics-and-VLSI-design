@@ -35,6 +35,9 @@ Functional verification and timing analysis were performed via SPICE simulation:
 ---
 
 ## 🚀 How to Run
+
+In order to run the files of this assingment it is required the installation of the ubundu subsystem
+After the installation of the ubundu and in condition   Magic and NGSPice tools are already installed you will be able to run the follwing commands in the ubundu terminal.
 1. **Layout:** Open the design in MAGIC:
    ```bash
    export DISPLAY=":0"
@@ -44,7 +47,7 @@ Functional verification and timing analysis were performed via SPICE simulation:
 
 3. For the NGspice run the command:
     ```bash
-    yourfile.spice
+    ngspice yourfile.spice
 
   
     
