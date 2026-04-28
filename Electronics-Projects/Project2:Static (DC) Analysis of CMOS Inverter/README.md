@@ -10,7 +10,12 @@ The project investigates the behavior of a CMOS inverter based on various parame
 * **Signal Restoration:** Evaluating the regenerative properties of cascaded inverter chains (4 stages) and their ability to restore logic levels from noisy inputs ($V_{IL}, V_{IH}$).
 
 ## 📁 Repository Structure
-* `/cir_files`: LTspice circuit schematics and netlists used for DC Sweep and Operating Point (.op) analysis.
+* `/cir_files`: LTspice circuit schematics and netlists used for DC Sweep and Operating Point (.op) analysis
+
+* Exercise1:ask1_b.cir,CMOS0.25_1.cir
+* Exercise2:ask2.cir
+* Exercise3:aks3_symmetric.cir,ask_Vih.cir,ask3_Vilcir.cir
+*     
 * `/plots`: High-resolution PNG exports of VTC curves, derivatives ($dV_{out}/dV_{in}$), and signal restoration steps.
 * `Project2:Static (DC) Analysis of CMOS Inverter.pdf`: The complete technical report document (compiled via LaTeX).
 
