@@ -79,7 +79,7 @@ vim filename.spice
 
   ### 4.Execute the simulation
 
-  * Run the netlist directly with ngspice:
+* Run the netlist directly with ngspice:
  
   ```bash
   ngspice filename.spice
