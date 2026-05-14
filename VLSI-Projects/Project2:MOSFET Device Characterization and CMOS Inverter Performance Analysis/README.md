@@ -46,3 +46,10 @@ Scalability was tested for $V_{DD} \in \{0.7, 1.2, 1.8, 2.5\}V$.
 * **Logic Integrity**: The CMOS inverter maintains its fundamental inverting property even at near-threshold voltages (0.7V).
 * **Efficiency vs. Speed**: Scaling $V_{DD}$ down drastically reduces power consumption but increases propagation delay due to reduced drive current.
 * **Robustness**: Lower supply voltages result in a steeper VTC transition, effectively narrowing the "uncertainty" zone and improving relative gain.
+
+## 📂 Repository Structure
+* `/spice`: Extracted netlists and SPICE simulation cards.
+* `/docs`: Final report in PDF format including layout screenshots and measurement data.
+
+---
+
