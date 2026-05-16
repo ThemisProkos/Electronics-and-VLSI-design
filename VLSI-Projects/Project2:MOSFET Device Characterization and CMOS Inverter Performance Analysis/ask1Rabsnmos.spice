@@ -1,0 +1,23 @@
+
+
+.include ./technology.txt
+
+*allazoume tis times tou Vgs xeirokinita kai to thetoume iso me 0.8 ,1.2, 2 kai 2.5 analoga tin grafiki parastasi pou mas endiaferei
+
+Vgs 1 0 DC 2
+Vds 2 0 DC 0
+MNMOS 2 1 0 0 CMOSN W=3u L=2u
+
+.DC Vds 0 2.5 0.25
+.control
+	run
+	set color0=black
+	set color1=blue
+	plot  V(2)/(-i(Vds))
+*mesi antistasti gia kathe timi tasis kai antstoixou reumatos gia tasi eisodou apo to 0 eos to 2.5
+	plot mean(V(2)/(-i(Vds)))
+	 
+
+
+.endc
+.end
