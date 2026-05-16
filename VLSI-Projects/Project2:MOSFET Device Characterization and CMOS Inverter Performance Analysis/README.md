@@ -58,8 +58,10 @@ The repository is organized as follows:
 │   │   ├── ask1nmosvds.spice      # NMOS Ids vs Vds analysis
 │   │   ├── ask1pmosvgs.spice      # PMOS Ids vs Vgs analysis
 │   │   ├── ask1pmosvds.spice      # PMOS Ids vs Vds analysis
-│   │   ├── ask1Rabsnmos.spice     # NMOS Resistance (Req) measurements
-│   │   └── ask1Rabspmos.spice     # PMOS Resistance (Req) measurements
+│   │   ├── ask1Reqnmos.spice      # NMOS Resistance plots and measuremnets
+│   │   ├── ask1Reqpmos.spice      # PMOS Resistance plots and measuremnets
+│   │   ├── ask1Rabsnmos.spice     # NMOS Resistance  measurements
+│   │   └── ask1Rabspmos.spice     # PMOS Resistance  measurements
 │   ├── Exercise_2/                # Threshold & Series Connectivity
 │   │   ├── ask2nmos.spice         # NMOS series/body effect simulation
 │   │   └── ask2pmos.spice         # PMOS series/body effect simulation
