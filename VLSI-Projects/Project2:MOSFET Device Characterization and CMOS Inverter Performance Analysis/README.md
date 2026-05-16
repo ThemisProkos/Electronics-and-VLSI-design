@@ -48,9 +48,29 @@ Scalability was tested for $V_{DD} \in \{0.7, 1.2, 1.8, 2.5\}V$.
 * **Robustness**: Lower supply voltages result in a steeper VTC transition, effectively narrowing the "uncertainty" zone and improving relative gain.
 
 ## 📂 Repository Structure
-* `/spice`: Extracted netlists and SPICE simulation cards.
-* `/docs`: Final report in PDF format including layout screenshots and measurement data.
 
+The repository is organized as follows:
+
+```text
+├── spice/                         # SPICE netlists and simulation control cards
+│   ├── Exercise_1/                # Transistor Characterization
+│   │   ├── ask1nmosvgs.spice      # NMOS Ids vs Vgs analysis
+│   │   ├── ask1nmosvds.spice      # NMOS Ids vs Vds analysis
+│   │   ├── ask1pmosvgs.spice      # PMOS Ids vs Vgs analysis
+│   │   ├── ask1pmosvds.spice      # PMOS Ids vs Vds analysis
+│   │   ├── ask1Rabsnmos.spice     # NMOS Resistance (Req) measurements
+│   │   └── ask1Rabspmos.spice     # PMOS Resistance (Req) measurements
+│   ├── Exercise_2/                # Threshold & Series Connectivity
+│   │   ├── ask2nmos.spice         # NMOS series/body effect simulation
+│   │   └── ask2pmos.spice         # PMOS series/body effect simulation
+│   └── Exercise_3/                # Inverter Design & Scaling
+│       ├── ask3a.spice            # VTC and Symmetry optimization
+│       └── ask3b.spice            # Supply voltage (Vdd) scaling analysis
+├── docs/                          # Project Documentation
+│   └── report.pdf                 # Final report with VTC plots and analysis
+└── technology.txt                 # TSMC 0.25μm SPICE model parameters
+
+```
 ## 🚀 How to Run the Simulations
 
 These instructions assume you are using **Ubuntu on Windows 11 (WSL2)**.
