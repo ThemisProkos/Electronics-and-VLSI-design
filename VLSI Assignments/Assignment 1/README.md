@@ -2,7 +2,7 @@
 # ECE327 - VLSI Digital Systems
 ## Assignment 1 | Academic Year 2022-2023
 
-This repository contains the implementation of the first assignment for the **HY327 - VLSI Digital Systems** course at the Department of Electrical and Computer Engineering, University of Thessaly.
+This repository contains the implementation of the first assignment for the **ECE327 - VLSI Digital Systems** course at the Department of Electrical and Computer Engineering, University of Thessaly.
 
 ---
 
