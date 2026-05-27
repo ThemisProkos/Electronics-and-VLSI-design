@@ -1,4 +1,4 @@
-# SPICE Design and Performance Analysis of CMOS Sequential Circuits
+# SPICE Design and Performance Analysis of CMOS Latches and Master Slave Flip Flops
 
 This repository contains the design, transistor-level simulation, and timing characterization of CMOS sequential logic circuits using SPICE (ngspice). The project was implemented as part of the **ECE327: VLSI Digital Design** course at the Department of Electrical and Computer Engineering, University of Thessaly.
 
