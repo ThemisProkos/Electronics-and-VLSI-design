@@ -1,7 +1,6 @@
-
 # SPICE Design and Performance Analysis of CMOS Sequential Circuits
 
-This repository contains the design, transistor-level simulation, and timing characterization of CMOS sequential logic circuits using SPICE (ngspice). The project was implemented as part of the **ECE327: Digital Electronics** course at the Department of Electrical and Computer Engineering, University of Thessaly.
+This repository contains the design, transistor-level simulation, and timing characterization of CMOS sequential logic circuits using SPICE (ngspice). The project was implemented as part of the **ECE327: VLSI Digital Design** course at the Department of Electrical and Computer Engineering, University of Thessaly.
 
 ## Project Overview
 
@@ -17,9 +16,8 @@ All implementations maintain a baseline minimum transistor sizing of:
 
 ## Repository Structure
 
-* `/spice_models` - Contains the SPICE netlist files (`.sp` or `.cir`) for both exercises.
-* `/waveforms` - Contains the transient response simulation plots extracted via ngspice.
-* `/report` - Contains the LaTeX source files and the final compiled PDF report.
+* `/spice_models` - Contains the SPICE netlist files (`.spice`) for both exercises.
+* `/report` Comperhensive  PDF report.
 
 ---
 
@@ -54,4 +52,3 @@ All implementations maintain a baseline minimum transistor sizing of:
 
 ## Simulation Tools
 * **Circuit Simulator:** ngspice (Transient Analysis)
-  
