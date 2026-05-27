@@ -53,4 +53,22 @@ All implementations maintain a baseline minimum transistor sizing of:
 ## Simulation Tools
 * **Circuit Simulator:** ngspice (Transient Analysis)
 
+## 🚀 How to Run
+
+In order to run the files of this assingment it is required the installation of the ubundu subsystem
+After the installation of the ubundu and in condition   Magic and NGSPice tools are already installed you will be able to run the follwing commands in the ubundu terminal.
+1. For Editing the .spice files we type in the right folder in the ubundu terminal the command:
+   ```bash
+   vim yourfile.spice
+   export DISPLAY=":0"
+  
+
+
+2. For the NGspice  we first run:
+    ```bash
+     export DISPLAY=":0"
+
+3.For the NGspice to run we type:
+```bash
+      ngspice yourfile.spice
 
