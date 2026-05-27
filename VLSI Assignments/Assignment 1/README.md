@@ -53,4 +53,4 @@ After the installation of the ubundu and in condition   Magic and NGSPice tools 
   
     
 
-5. 
+
