@@ -16,7 +16,7 @@ All implementations maintain a baseline minimum transistor sizing of:
 
 ## Repository Structure
 
-* `/spice_models` - Contains the SPICE netlist files (`.spice`) for both exercises.
+* ask1.spice,ask2.spice: Spice models that contain the SPICE netlist files (`.spice`) for both exercises.
 * `/report` Comperhensive  PDF report.
 
 ---
