@@ -61,7 +61,22 @@ Where:
 * $R_1, R_2$: Distributed channel resistances along the critical discharge path.
 
 ---
+## 🚀 How to Run
 
+In order to run the files of this assingment it is required the installation of the ubundu subsystem
+After the installation of the ubundu and in condition   Magic and NGSPice tools are already installed you will be able to run the follwing commands in the ubundu terminal.
+1. **Layout:** Open the design in MAGIC:
+   ```bash
+   export DISPLAY=":0"
+   -magic Tscmos
+
+2. Open the the files fro mthe Magic interface
+
+3. For the NGspice run the command:
+    ```bash
+    ngspice yourfile.spice
+
+    
 ## 📁 Repository Organization
 
 ```text
