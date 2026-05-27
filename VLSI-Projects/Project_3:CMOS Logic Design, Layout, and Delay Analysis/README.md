@@ -1,6 +1,6 @@
-# ECE330 - Digital VLSI Systems | Assignment 3
+# ECE327 - Digital VLSI Systems | Assignment 3
 
-This repository contains the complete design, implementation, layout extraction, and analytical delay verification for a static CMOS standard cell library, developed for the **ECE330 - Digital VLSI Systems** course at the *University of Thessaly*.
+This repository contains the complete design, implementation, layout extraction, and analytical delay verification for a static CMOS standard cell library, developed for the **ECE327 - Digital VLSI Systems** course at the *University of Thessaly*.
 
 The core objective of this project is to master the complete digital design flow: transitioning from Boolean equations to optimal transistor sizing, structural stick diagram planning, full-custom mask layouts in Magic VLSI, and advanced theoretical delay modeling using the RC Elmore metric.
 
