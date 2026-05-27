@@ -80,8 +80,7 @@ After the installation of the ubundu and in condition   Magic and NGSPice tools 
 ## 📁 Repository Organization
 
 ```text
-├── schematics/          # Transistor-level structural circuit schematics
-├── stick_diagrams/      # Color-coded Stick Diagrams mapping out optimal Euler paths
-├── magic_layouts/       # Full-custom physical mask files (.mag) for Magic VLSI
-├── spice_simulations/   # Extracted netlists, truth tables, and testbenches for ngspice
-└── docs/                # Comprehensive engineering design report (PDF)
+├── faoi21.mag,faoi22.mag,fmaj.mag,foai31.mag         # Full-custom physical mask files (.mag)  for the implementation for Magic VLSI
+├── faoi21.spice,faoi22.spice,foa31.spice,fmaj.spice/      # Extracted netlists from Magic VLSI 
+├── technology.txt #technology paramaters       
+└── Project_3:CMOS Logic Design, Layout, and Delay Analysis.pdf # Comprehensive engineering design report (PDF)
