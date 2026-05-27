@@ -1,0 +1,24 @@
+.include ./technology.txt
+
+
+Vdd 3 0 DC 2.5
+Vin 1 0 DC 2.5
+M1 2 1 3 3 CMOSN W=3u L=2u
+M2 4 1 2 0 CMOSN W=3u L=2u
+C1 4 0 0.1p
+
+
+
+.IC V(2)=0
+.IC V(4)=0
+.tran 10p 10n 
+
+.control
+	run
+	set color0=white
+	set color1=black
+	plot V(2) V(4)
+	 
+
+.endc
+.end

@@ -1,0 +1,25 @@
+.include technology.txt
+
+*allazo tis times to platon ton tranzistors apo 2u kai 2u se 2u kai 6u gia na kataskeuaso summetriko antistrofea
+M1 2 1 0 0 CMOSN W=2u L=2u
+M2 2 1 3 3 CMOSP W=12u L=2u
+
+
+Vdd 3 0 DC 2.5
+Vin 1 0 DC 0
+
+
+
+
+.DC Vin 0 2.5 0.001
+.control
+	run
+	set color0=black
+	set color1=blue
+	plot V(2) V(1) 
+	plot deriv(V(2))
+
+
+.endc
+
+.END
