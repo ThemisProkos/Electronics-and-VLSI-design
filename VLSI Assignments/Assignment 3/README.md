@@ -70,9 +70,14 @@ After the installation of the ubundu and in condition   Magic and NGSPice tools 
    export DISPLAY=":0"
    -magic Tscmos
 
-2. Open the the files fro mthe Magic interface
+2. Open the the files from the Magic interface
 
-3. For the NGspice run the command:
+3. If you want to edit the exported .spice files from the Magic run the command:
+   ```bash
+   vim yourfile.spice
+   
+
+4. For the NGspice run the command:
     ```bash
     ngspice yourfile.spice
 
