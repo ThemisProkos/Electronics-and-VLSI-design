@@ -1,0 +1,77 @@
+* SPICE3 file created from foai31.ext - technology: scmos
+
+.option scale=1u
+Vpower vdd gnd 2.5 DC
+
+M1000 K2 inC K1 vdd pfet w=30 l=2
++  ad=180 pd=72 as=180 ps=72
+M1001 gnd inA a_0_n88# gnd nfet w=8 l=2
++  ad=88 pd=54 as=96 ps=56
+M1002 gnd inD a_0_n88# gnd nfet w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1003 K1 inA vdd vdd pfet w=30 l=2
++  ad=0 pd=0 as=160 ps=72
+M1004 out inD K2 vdd pfet w=30 l=2
++  ad=200 pd=100 as=0 ps=0
+M1005 vdd inB out vdd pfet w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1006 a_0_n88# inB out gnd nfet w=8 l=2
++  ad=0 pd=0 as=40 ps=26
+M1007 a_0_n88# inC gnd gnd nfet w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 inB vdd 6.43fF
+C1 a_0_n88# gnd 4.14fF
+C2 inB gnd 6.51fF
+C3 inA gnd 6.51fF
+C4 inC gnd 6.51fF
+C5 vdd out 4.51fF
+C6 inD gnd 6.51fF
+C7 out 0 8.48fF
+C8 inD 0 2.22fF
+C9 inC 0 2.22fF
+C10 inA 0 2.22fF
+C11 inB 0 2.22fF
+
+*edo tha ginetai i allagi ton timon eisodou gia na epalitheusoume ton pinaka alithias tis sinartisis
+Vin1 inA 0 PULSE(2.5 0 0 1p 1p 100n 200n)
+Vin2 inB 0 PULSE(2.5 0 0 1p 1p 50n 100n)
+Vin3 inC 0 PULSE(2.5 0 0 1p 1p 25n 50n)
+Vin4 inD 0 PULSE(2.5 0 0 1p 1p 12.5n 25n)
+
+
+
+* DATE: Jun 11/01                                                               
+* LOT: T14Y                  WAF: 03                                            
+* DIE: N_Area_Fring          DEV: N3740/10                                      
+* Temp= 27                                                                      
+.MODEL nfet NMOS (                                 LEVEL  = 3                  
++ TOX    = 5.7E-9          NSUB   = 1E17            GAMMA  = 0.4317311          
++ PHI    = 0.7             VTO    = 0.4238252       DELTA  = 0                  
++ UO     = 425.6466519     ETA    = 0               THETA  = 0.1754054          
++ KP     = 2.501048E-4     VMAX   = 8.287851E4      KAPPA  = 0.1686779          
++ RSH    = 4.062439E-3     NFS    = 1E12            TPG    = 1                  
++ XJ     = 3E-7            LD     = 3.162278E-11    WD     = 1.232881E-8        
++ CGDO   = 6.2E-10         CGSO   = 6.2E-10         CGBO   = 1E-10              
++ CJ     = 1.81211E-3      PB     = 0.5             MJ     = 0.3282553          
++ CJSW   = 5.341337E-10    MJSW   = 0.5             )                           
+
+.MODEL pfet PMOS (                                 LEVEL  = 3                  
++ TOX    = 5.7E-9          NSUB   = 1E17            GAMMA  = 0.6348369          
++ PHI    = 0.7             VTO    = -0.5536085      DELTA  = 0                  
++ UO     = 250             ETA    = 0               THETA  = 0.1573195          
++ KP     = 5.194153E-5     VMAX   = 2.295325E5      KAPPA  = 0.7448494          
++ RSH    = 30.0776952      NFS    = 1E12            TPG    = -1                 
++ XJ     = 2E-7            LD     = 9.968346E-13    WD     = 5.475113E-9        
++ CGDO   = 6.66E-10        CGSO   = 6.66E-10        CGBO   = 1E-10              
++ CJ     = 1.893569E-3     PB     = 0.9906013       MJ     = 0.4664287          
++ CJSW   = 3.625544E-10    MJSW   = 0.5             )                           
+*
+
+.tran 10p 200n
+.control
+ run
+plot V(inA) V(inB) V(inC) V(inD) out
+
+.endc
+.end
+
