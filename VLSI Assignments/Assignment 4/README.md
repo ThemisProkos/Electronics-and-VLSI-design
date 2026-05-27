@@ -60,7 +60,7 @@ After the installation of the ubundu and in condition   Magic and NGSPice tools 
 1. For Editing the .spice files we type in the right folder in the ubundu terminal the command:
    ```bash
    vim yourfile.spice
-   export DISPLAY=":0"
+ 
   
 
 
