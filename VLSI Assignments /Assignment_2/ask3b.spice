@@ -1,0 +1,28 @@
+.include technology.txt
+
+M1 2 1 0 0 CMOSN W=3u L=2u
+M2 2 1 3 3 CMOSP W=3u L=2u
+
+*to Vdd tha parei tis times 0.7 1.2 1.8 2.5
+Vdd 3 0 DC 0.7
+Vin 1 0 DC 0
+
+
+
+*to Vin tha trexei apo to 0 eos to antistoixo Vdd kathe fora
+.DC Vin 0 0.7 0.001
+.control
+	run
+	set hcopydevtype=postscript
+	set hcopypscolor=true
+	set color0=black
+	set color1=blue
+	plot V(2) V(1) 
+	plot deriv(V(2))
+ 	plot  mean(-i(Vdd))
+	plot mean(V(3)*(-i(Vdd)))
+
+
+
+.endc
+.END
