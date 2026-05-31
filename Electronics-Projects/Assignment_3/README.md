@@ -11,9 +11,9 @@ The primary objective of this laboratory exercise is the transient analysis of d
 ### Task 1: Delay Analysis of a CMOS Inverter (Asymmetric vs. Symmetric Sizing)
 * **Objective:** Investigate the transient response and propagation delays ($t_{pHL}$ and $t_{pLH}$) of a CMOS inverter based on transistor sizing under a Fan-Out of 4 (FO4) loading configuration.
 * **Requirements:**
-  1. Measure propagation delays at the $50\%$ threshold of the power supply voltage ($V_{DD}/2$) for an **asymmetric inverter configuration** where the NMOS and PMOS channel widths are equal ($W_n = W_p$).
+  
   2. Measure propagation delays at the $50\%$ threshold for a **symmetric inverter configuration** where the PMOS transistor is sized wider ($W_p = 2.5 \cdot W_n$) to compensate for carrier mobility differences ($\mu_n > \mu_p$).
-  3. Compare the delay components ($t_{pHL}$ and $t_{pLH}$) for both cases and evaluate the effect of balancing the pull-up and pull-down networks.
+  3. Compare the delay components ($t_{pHL}$ and $t_{pLH}$) for all cases of different transistor widths and evaluate the effect of balancing the pull-up and pull-down networks.
 
 ---
 
