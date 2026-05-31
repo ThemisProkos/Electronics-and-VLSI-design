@@ -1,0 +1,24 @@
+
+
+*1st cMOS inventrer
+
+M1 2 1 0 0  NMOS W={W1} L=0.25u AD={W1*Ld} AS={W1*Ld} PD={W1+2*LD} PS={W1+2*LD}
+M2 2 1 3 3 PMOS W={4.81*W1} L=0.25u AD={4.81*W1*Ld} AS={4.81*W1*Ld} PD={4.81*W1+2*LD} PS={4.81*W1+2*LD}
+
+*2st cMOS inventer
+M3 4 2 0 0  NMOS W={k*W1} L=0.25u AD={k*W1*Ld} AS={k*W1*Ld} PD={k*W1+2*LD} PS={k*W1+2*LD}
+M4 4 2 3 3 PMOS W={k*4.81*W1} L=0.25u AD={k*4.81*W1*Ld} AS={k*4.81*W1*Ld} PD={k*4.81*W1+2*LD} PS={k*4.81*W1+2*LD}
+
+
+Vdd 3 0 DC 2.5
+*delay ston palmo=0.5n gia na mporo na do kathara ton palmo kai xronoi anodou=kathodou=1ps=amelitaioi(akariaia metopa anodou-kathodou)
+Vin 1 0 PULSE (0 2.5 0.5n 1p 1p 5n 10n)
+
+
+
+
+*to k einai enas pollaplasiastis kai pairnei times apo to ews to 20
+.INC "tsmc025.sp"
+.PARAMS W1=1u, Ld=1.2u,  k=20
+.TRAN 0.001n 10n
+.END

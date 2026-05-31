@@ -1,0 +1,20 @@
+*Fanout-of-4 (FO4) inverter delay (for a realistic inverter)
+
+
+Vdd 99 0 DC 2.5
+Vin 1 0 PULSE (0 2.5 0p 1p 1p 5n 10n)
+
+X1 1 2 99 inv PARAMS: Wn=1u Wp=5u
+X2 2 3 99 inv PARAMS: Wn=4u Wp=20u
+X3 3 4 99 inv PARAMS: Wn=16u Wp=80u
+X5 4  8 rc_model PARAMS: l=5000 Rw=0.075 Cw=0.1f
+X4 8 9 99 inv PARAMS: Wn=64u Wp=320u
+
+
+
+
+.INC "subcircuit.sp"
+.INC "tsmc025.sp"
+.TEMP 70
+.TRAN 1p 10n
+.END
