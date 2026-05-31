@@ -8,16 +8,9 @@ The primary objective of this laboratory exercise is the transient analysis of d
 
 ---
 
-### Task 1: Delay Analysis of a CMOS Inverter (Asymmetric vs. Symmetric Sizing)
-* **Objective:** Investigate the transient response and propagation delays ($t_{pHL}$ and $t_{pLH}$) of a CMOS inverter based on transistor sizing under a Fan-Out of 4 (FO4) loading configuration.
-* **Requirements:**
-  
-  1. Measure propagation delays at the $50\%$ threshold for a **symmetric inverter configuration** where the PMOS transistor is sized wider ($W_p = 2.5 \cdot W_n$) to compensate for carrier mobility differences ($\mu_n > \mu_p$).
-  2. Compare the delay components ($t_{pHL}$ and $t_{pLH}$) for all cases of different transistor widths and evaluate the effect of balancing the pull-up and pull-down networks.
 
----
 
-### Task 2: Parametric Delay Analysis with Scaled Transistor Widths
+### Task 1: Parametric Delay Analysis with Scaled Transistor Widths
 * **Objective:** Evaluate the impact of scaling transistor dimensions on the overall circuit propagation delay while keeping the sizing ratio constant.
 * **Requirements:**
   1. Maintain a constant symmetric sizing ratio ($\frac{W_p}{W_n} = \frac{k_n'}{k_p'} \approx 4.813$).
@@ -26,6 +19,15 @@ The primary objective of this laboratory exercise is the transient analysis of d
   4. Plot and observe the resulting transient response waveforms to analyze the trade-off between increased current driving capability and growing parasitic capacitances.
 
 ---
+
+### Task 2: Parametric Delay Analysis with Scaled Transistor Widths
+* **Objective:** Study the effect of transistor sizing on the propagation delay of a CMOS inverter while keeping the sizing ratio constant.
+* **Requirements:**
+  1. Maintain the ratio $W_p / W_n = k_n' / k_p' = 2.5 \cdot 10^{-4} / 5.194 \cdot 10^{-5} = 4.813$ constant.
+  2. Use the SPICE directive `.param` to define $W_n$ and $W_p$ as parameters.
+  3. Perform a parametric simulation by continuously varying the width of the NMOS transistor across the following values: $W_n \in \{2\,\mu\text{m}, 3.2\,\mu\text{m}, 6\,\mu\text{m}, 10\,\mu\text{m}, 20\,\mu\text{m}\}$.
+  4. Ensure that the area ($AD, AS$) and perimeter ($PD, PS$) of the drain and source regions are automatically adjusted and scaled accordingly for each step.
+  5. Plot the transient response waveforms to observe and analyze how the propagation delay changes as the transistor dimensions increase.
 
 ### Task 3: Delay Analysis in Interconnect Lines
 * **Objective:** Study the performance degradation and propagation delay overhead introduced by parasitic interconnect components in digital circuits.
