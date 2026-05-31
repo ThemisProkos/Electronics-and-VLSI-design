@@ -25,9 +25,10 @@ The primary objective of this laboratory exercise is the transient analysis of d
 * **Requirements:**
   1. Maintain the ratio $W_p / W_n = k_n' / k_p' = 2.5 \cdot 10^{-4} / 5.194 \cdot 10^{-5} = 4.813$ constant.
   2. Use the SPICE directive `.param` to define $W_n$ and $W_p$ as parameters.
-  3. Perform a parametric simulation by continuously varying the width of the NMOS transistor across the following values: $W_n \in \{2\,\mu\text{m}, 3.2\,\mu\text{m}, 6\,\mu\text{m}, 10\,\mu\text{m}, 20\,\mu\text{m}\}$.
+  3. Perform a parametric simulation by continuously varying the tranistorss widths of a second inverter connected to the output of the first inverter across the following dimensions values: $x1,x2,x3,x4,x5,x6,x7,\cdots,x20$.
   4. Ensure that the area ($AD, AS$) and perimeter ($PD, PS$) of the drain and source regions are automatically adjusted and scaled accordingly for each step.
   5. Plot the transient response waveforms to observe and analyze how the propagation delay changes as the transistor dimensions increase.
+  6. Plot the propagation delays graphs with respect to the $C_{g2}/C_{g1} $ ratio.
 
 ### Task 3: Delay Analysis in Interconnect Lines
 * **Objective:** Study the performance degradation and propagation delay overhead introduced by parasitic interconnect components in digital circuits.
