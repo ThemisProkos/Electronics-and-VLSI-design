@@ -30,7 +30,7 @@ To understand the workflow alongside the final **PDF Report**, the code is mappe
 * **Key Concept:** Propagation delays vary drastically based on input sequences. Parallel conduction in the pull-up network yields the fastest $t_{pLH}$ ($A=1, B=1 \rightarrow A=0, B=0$). 
 * **Worst-Case Delay Configuration:** The absolute worst $t_{pLH}$ occurs during $A=1, B=1 \rightarrow A=1, B=0$, where only one PMOS is active while an internal serial node capacitance must additionally be charged up.
 
-####Exercise 2: 1-Bit Full Adder Complex Gate Sizing & Delay
+#### Exercise 2: 1-Bit Full Adder Complex Gate Sizing & Delay
 ***Objective:** Extract and analyze the logical function of the 1-bit Full Adder's first stage (producing the intermediate node $X = \overline{A \cdot B + C_i \cdot (A + B)}$).
 * **Transistor Sizing:** To match the rise/fall resistance of a reference symmetric inverter ($W_n = 1\mu\text{m}$), equivalent pull-up/pull-down path analysis was conducted. Serial NMOS/PMOS chains were scaled proportionally to guarantee equal drive currents.
 * **Capacitance Extraction:** Transistor oxide gate capacitance ($C_{ox}$) was manually extracted using the formula:
