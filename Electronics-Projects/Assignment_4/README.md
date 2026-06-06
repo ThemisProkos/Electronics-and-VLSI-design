@@ -10,6 +10,7 @@ The project focuses on sub-micron CMOS technology (**TSMC 0.25µm**) and explore
 
 ## 📂 Project Repository Structure & File Guide
 
+In order the .cir file to run the LTspice software is required in your computer. 
 To understand the workflow alongside the final **PDF Report**, the code is mapped directly to the laboratory exercises:
 
 * `/Section6_Delay/`
