@@ -1,73 +1,51 @@
-# CMOS Complex Gate & Inverter - Power, Energy & Delay Analysis (SPICE)
+# CMOS Digital IC Analysis: Propagation Delay & Power Dissipation (SPICE)
 
-This repository contains the SPICE netlists, simulation configuration, and transient analysis for the design, verification, and performance evaluation of a CMOS complex gate and a symmetric inverter. This project was developed as part of **Lab 4: Power Consumption of CMOS Gates and Circuits (Section 7)**.
+This repository contains the SPICE netlists, simulation scripts, and transient analysis for **Lab 4** of the **ECE214 - Introduction to Electronics** course at the **University of Thessaly**. 
 
-The objective is to explore the physical limitations of CMOS technology, determine the maximum operating frequency (minimum functional transition period), and analyze the discrepancies between theoretical dynamic power models and experimental SPICE simulation results.
-
----
-
-## 📌 Project Overview & Objectives
-
-The project is structured around two core exercises evaluated under transient SPICE analysis using the **TSMC 0.25µm** technology node:
-
-1. **Exercise 1 (Symmetric Inverter Analysis):** Evaluation of average power consumption ($P_T$) and total delivered energy ($E$) under specific pulse input stimulus ($1 \rightarrow 0 \rightarrow 1$) with defined rise/fall times.
-2. **Exercise 2 (CMOS Complex Gate Boundary Testing):** Implementation of an exhaustive 3-bit binary input sequence ($ABC_i$ from `000` to `111`) to discover the **minimum operational time interval ($T$)** where the gate remains functional (maximum operating frequency), followed by a comparison of experimental power dissipation against the theoretical switching activity model.
+The project focuses on sub-micron CMOS technology (**TSMC 0.25µm**) and explores two primary digital IC design constraints across 4 comprehensive exercises:
+1. **Propagation Delay Optimization & Internal Capacitances** (Section 6).
+2. **Power Dynamics & Energy Consumption Boundaries** (Section 7).
 
 ---
 
-## 🔬 Circuit Architecture & SPICE Netlist
+## 📂 Project Repository Structure & File Guide
 
-The main simulation file tests a multi-stage CMOS circuit composed of:
-- **A CMOS Complex Gate:** Implementing the inverted carry-out function ($\overline{C_o}$) of a Full Adder.
-- **An Output Inverter:** Serving as a buffer to restore logical levels and generate the true Full Adder Carry-Out ($C_o$).
-- **Parasitic & Load Capacitances:** Including explicit load caps ($CL_x$) and internal transistor junction/sidewall diffusion capacitances ($C_{jar}, C_{jsw}$).
+To understand the workflow alongside the final **PDF Report**, the code is mapped directly to the laboratory exercises:
 
-### SPICE Stimulus Setup for 8-Combination Exhaustive Testing
-To evaluate all 8 logical combinations sequentially while ensuring that the input $C_i$ switches most frequently (as requested by the specification), a binary scaling approach is applied to the pulse sources:
-- **$V_{inA}$:** Period = $16\text{ ns}$ (Switches every $8\text{ ns}$)
-- **$V_{inB}$:** Period = $8\text{ ns}$ (Switches every $4\text{ ns}$)
-- **$V_{inC}$:** Period = $4\text{ ns}$ (Switches every $2\text{ ns}$) &rarr; *Fastest switching input*
+* `/Section6_Delay/`
+  * `nand2_delay.sp` &rarr; **Section 6 - Exercise 1:** Exhaustive input vectors for a basic $NAND2$ gate.
+  * `complex_gate_sizing.sp` &rarr; **Section 6 - Exercise 2:** Structural netlist of the 1-bit Full Adder Complex Gate ($X$-node) with sized transistors.
+* `/Section7_Power/`
+  * `inverter_power.sp` &rarr; **Section 7 - Exercise 1:** Power and energy calculation of a symmetric inverter using `.MEASURE INTEG`.
+  * `complex_gate_boundary_power.sp` &rarr; **Section 7 - Exercise 2:** Critical operating window and total power analysis for the Full Adder complex gate.
 
 ---
 
-## 📊 Key Findings & Simulation Results
+## 🔬 Detailed Exercise Walkthrough & Methodology
 
-For a deep-dive mathematical derivation of these values, please cross-reference this section with the corresponding chapters in the **PDF Report**.
+### ⚡ SECTION 6: Propagation Delay of General CMOS Gates 
 
-### 1. Inverter Power & Energy (Exercise 1)
-Under a stable $V_{DD} = 2.5\text{ V}$ and an input pulse period of $T = 30\text{ ns}$ ($t_r = t_f = 7.5\text{ ns}$):
-* **Average Power Dissipation ($P_T$):** $9.593 \times 10^{-5}\text{ W}$
-* **Total Energy Delivered ($E$):** $2.877 \times 10^{-12}\text{ J}$
+#### Exercise 1: NAND2 Vector Analysis
+* **Objective:** Implement a unit-size symmetric 2-input NAND gate ($V_{DD} = 2.5\text{V}$, $C_{L(ext)} = 200\text{ fF}$) and measure $t_{pHL}$ and $t_{pLH}$ across all transition scenarios.
+* **Key Concept:** Propagation delays vary drastically based on input sequences. Parallel conduction in the pull-up network yields the fastest $t_{pLH}$ ($A=1, B=1 \rightarrow A=0, B=0$). 
+* **Worst-Case Delay Configuration:** The absolute worst $t_{pLH}$ occurs during $A=1, B=1 \rightarrow A=1, B=0$, where only one PMOS is active while an internal serial node capacitance must additionally be charged up.
 
-### 2. Critical Operating Boundary (Exercise 2)
-By sweeping the time interval between consecutive input changes, the **absolute hardware limitation** for proper gate operation was determined:
-* **Minimum Functional Transition Time:** $T_{\text{min}} = 2\text{ ns}$
-* At $2\text{ ns}$, the complex gate exhibits an **incomplete voltage swing** (barely functional state) during the $(0,1,0) \rightarrow (0,1,1)$ transition, failing to reach absolute $0\text{ V}$ before being pulled high again.
-* The subsequent inverter stage successfully acts as a restoring buffer, stabilizing the final $C_o$ output signal at this maximum frequency boundary ($f = 500\text{ MHz}$).
-
-### 3. Power Discrepancy: Theory vs. Experimental SPICE
-Using the analytical formula for dynamic power consumption:
-$$P_{av} = \alpha_{0 \rightarrow 1} \cdot f \cdot C_L \cdot V_{DD}^2$$
-
-Where:
-* Switching activity factor $\alpha_{0 \rightarrow 1} = 1/8$
-* Boundary Frequency $f = 500\text{ MHz}$
-* Total node capacitance $C_L = C_{\text{internal\_diffusion}} + C_{\text{external}} = 0.36\text{ pF}$
-
-* **Theoretical Dynamic Power ($P_{av}$):** $0.14\text{ mW}$
-* **SPICE Experimental Power ($P_{\text{measured}}$):** $2.9\text{ mW}$
-
-### why is there a discrepancy?
-As thoroughly justified in the report, the hand-calculated formula **only** accounts for dynamic capacitive switching power. SPICE transient simulation captures the complete physical behavior, including:
-1. **Short-Circuit Power ($P_{\text{short-circuit}}$):** Direct VDD-to-GND current paths formed momentarily when both PMOS and NMOS networks are simultaneously on during transitions.
-2. **Static Leakage Power ($P_{\text{leakage}}$):** Subthreshold and gate leakage currents flowing even when the transistors are logically turned off ($V_{GS} < V_T$), a dominant factor in sub-micron technology nodes like $0.25\micro\text{m}$.
+####Exercise 2: 1-Bit Full Adder Complex Gate Sizing & Delay
+***Objective:** Extract and analyze the logical function of the 1-bit Full Adder's first stage (producing the intermediate node $X = \overline{A \cdot B + C_i \cdot (A + B)}$).
+* **Transistor Sizing:** To match the rise/fall resistance of a reference symmetric inverter ($W_n = 1\mu\text{m}$), equivalent pull-up/pull-down path analysis was conducted. Serial NMOS/PMOS chains were scaled proportionally to guarantee equal drive currents.
+* **Capacitance Extraction:** Transistor oxide gate capacitance ($C_{ox}$) was manually extracted using the formula:
+  $$C_{ox} = \frac{\epsilon_{ox}}{t_{ox}}$$
+ Where $\epsilon_{ox} = 4 \cdot \epsilon_0 = 3.54 \times 10^{-11}\text{ F/m}$. This calculated parameter was implemented as the explicit capacitive load for the isolated gate characterization.
 
 ---
 
-## 🛠️ How to Run the Simulation
+###🔋 SECTION 7: Power Consumption of CMOS Circuits 
 
-1. Ensure you have a SPICE simulator installed (e.g., **LTspice**, **NGspice**, or **HSpice**).
-2. Download the `tsmc025.sp` technology model file and place it in the same directory as the netlist.
-3. Execute the simulation using the provided netlist code block or `.sp` file:
-   ```bash
-   ngspice complex_gate_av_power.sp
+#### Exercise 1: Symmetric Inverter Energy Metrics 
+***Objective:** Quantify the total average power ($P_T$) and absolute source energy ($E$) for a $1 \rightarrow 0 \rightarrow 1$ logical swing under a strict transient period ($T = 30\text{ ns}$, $t_r=t_f=7.5\text{ ns}$, $C_{L(ext)} = 200\text{ fF}$).
+* **Execution:** Utilized advanced automated post-processing routines in SPICE (`.MEASURE TRAN ... INTEG`) to compute the integral of the supply current waveform:
+  ```spice
+  .TRAN 0.001n 30n
+  .MEASURE TRAN integ_I INTEG -I(Vdd)
+  .MEASURE energy param integ_I*2.5
+  .MEASURE average_power param integ_I*(2.5/30n)
