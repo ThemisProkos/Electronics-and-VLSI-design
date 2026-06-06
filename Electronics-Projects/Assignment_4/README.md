@@ -13,12 +13,13 @@ The project focuses on sub-micron CMOS technology (**TSMC 0.25µm**) and explore
 To understand the workflow alongside the final **PDF Report**, the code is mapped directly to the laboratory exercises:
 
 * `/Section6_Delay/`
-  * `nand2_delay.sp` &rarr; **Section 6 - Exercise 1:** Exhaustive input vectors for a basic $NAND2$ gate.
-  * `complex_gate_sizing.sp` &rarr; **Section 6 - Exercise 2:** Structural netlist of the 1-bit Full Adder Complex Gate ($X$-node) with sized transistors.
+  * `6_1.cir` &rarr; **Section 6 - Exercise 1:** Exhaustive input vectors for a basic $NAND2$ gate.
+  * `6_2.cir` &rarr; **Section 6 - Exercise 2:** Structural netlist of the 1-bit Full Adder Complex Gate ($X$-node) with sized transistors.
 * `/Section7_Power/`
-  * `inverter_power.sp` &rarr; **Section 7 - Exercise 1:** Power and energy calculation of a symmetric inverter using `.MEASURE INTEG`.
-  * `complex_gate_boundary_power.sp` &rarr; **Section 7 - Exercise 2:** Critical operating window and total power analysis for the Full Adder complex gate.
-
+  * `7_1.cir` &rarr; **Section 7 - Exercise 1:** Power and energy calculation of a symmetric inverter using `.MEASURE INTEG`.
+  * `7_2.cir` &rarr; **Section 7 - Exercise 2:** Critical operating window and total power analysis for the Full Adder complex gate.
+* `/Technology/`
+   * `tsmc025.sp`  &rarr; Parameter values of nMOS and pMOS for the certain technology
 ---
 
 ## 🔬 Detailed Exercise Walkthrough & Methodology
