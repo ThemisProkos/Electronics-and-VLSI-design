@@ -1,0 +1,32 @@
+
+
+Vdd 69 0 DC 2.5
+
+
+M1 4 1 69 69 PMOS W={2*r} L=0.25u AD={2*r*Ld} AS={2*r*Ld} PD={2*Ld+2*r} PS={2*Ld+2*r}
+M2 4 2 69 69 PMOS W={2*r} L=0.25u AD={2*r*Ld} AS={2*r*Ld} PD={2*Ld+2*r} PS={2*Ld+2*r}
+M3 5 2 4 69 PMOS W={4*r} L=0.25u AD={4*r*Ld} AS={4*r*Ld} PD={2*Ld+4*r} PS{2*Ld+4*r}
+M4 6 3 4 69 PMOS W={2*r} L=0.25u AD={2*r*Ld} AS={2*r*Ld} PD={2*Ld+2*r} PS{2*Ld+2*r}
+M5 6 1 5 69 PMOS W={4*r} L=0.25u AD={4*r*Ld} AS={4*r*Ld} PD={2*Ld+4*r} PS={2*Ld+4*r}
+M6 6 3 7 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS={2*Ld+Wn}
+M7 7 1 0 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS{2*Ld+Wn}
+M8 7 2 0 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS{2*Ld+Wn}
+M9 8 2 0 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS={2*Ld+Wn}
+M10 6 1 8 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS={2*Ld+Wn}
+CLx 6 0 0.02706p
+*antistrofeas gia na paraxthei i eskodos
+M11 13 6 69 69 PMOS W={r} L=0.25u AD={r*Ld} AS={r*Ld} PD={2*Ld+r} PS={2*Ld+r}
+M12 13 6 0 0 NMOS W=1u L=0.25u AD={1u*Ld} AS={1u**Ld} PD={2*Ld+1u} PS={2*Ld+1u}
+
+
+VinA 1 0 PULSE (0 2.5 8n 1p 1p 8n 16n)
+VinB 2 0 PULSE (0 2.5 4n 1p 1p 4n 8n)
+VinC 3 0 PULSE (0 2.5 2n 1p 1p 2n 4n)
+
+.TRAN 0.001n 16n
+.MEASURE TRAN integ_I INTEG -I(Vdd)
+.MEASURE isxus param integ_I*(2.5/16n)
+.PROBE V(1) V(2) V(3) V(6) V(13) I(Vdd)
+.PARAMS  r=4.81u, Wn=2u, Ld=5u
+.INC "tsmc025.sp"
+.END

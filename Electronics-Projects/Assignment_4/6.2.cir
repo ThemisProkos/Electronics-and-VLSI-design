@@ -1,0 +1,73 @@
+
+
+Vdd 69 0 DC 2.5
+
+
+M1 4 1 69 69 PMOS W={2*r} L=0.25u AD={2*r*Ld} AS={2*r*Ld} PD={2*Ld+2*r} PS={2*Ld+2*r}
+M2 4 2 69 69 PMOS W={2*r} L=0.25u AD={2*r*Ld} AS={2*r*Ld} PD={2*Ld+2*r} PS={2*Ld+2*r}
+M3 5 2 4 69 PMOS W={4*r} L=0.25u AD={4*r*Ld} AS={4*r*Ld} PD={2*Ld+4*r} PS{2*Ld+4*r}
+M4 6 3 4 69 PMOS W={2*r} L=0.25u AD={2*r*Ld} AS={2*r*Ld} PD={2*Ld+2*r} PS{2*Ld+2*r}
+M5 6 1 5 69 PMOS W={4*r} L=0.25u AD={4*r*Ld} AS={4*r*Ld} PD={2*Ld+4*r} PS={2*Ld+4*r}
+M6 6 3 7 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS={2*Ld+Wn}
+M7 7 1 0 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS{2*Ld+Wn}
+M8 7 2 0 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS{2*Ld+Wn}
+M9 8 2 0 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS={2*Ld+Wn}
+M10 6 1 8 0 NMOS W={Wn} L=0.25u AD={Wn*Ld} AS={Wn*Ld} PD={2*Ld+Wn} PS={2*Ld+Wn}
+
+CLx 6 0 0.02706p
+*i xoritikotita tou pinkoti prokupti apo ton tupo pou dothike stis diafanies
+
+*(0,0,0)->(1,1,1)
+VinA 1 0 PULSE  0 2.5 2n 1.5n 1.5n 2.5n 10n
+VinB 2 0 PULSE  0 2.5 2n 1.5n 1.5n 2.5n 10n
+VinC 3 0 PULSE  0 2.5 2n 1.5n 1.5n 2.5n 10n
+
+*(0,0,0)->(1,1,0)
+*VinA 1 0 PULSE  0 2.5 2n 1.5n 1.5n 2.5n 10n
+*VinB 2 0 PULSE  0 2.5 2n 1.5n 1.5n 2.5n 10n
+*VinC 3 0 DC 0
+
+*(0,0,0)->(1,0,1)
+*VinA 1 0 PULSE  0 2.5 2n 1.5n 1.5n 2.5n 10n
+*VinB 2 0 DC 0
+*VinC 3 0 PULSE  0 2.5 2n 1.5n 1.5n 2.5n 10n
+
+*(0,0,0)->(0,1,1)
+*VinA 1 0 DC 0
+*VinB 2 0 PULSE  0 2.5 2n 1.5n 1.5n 2.5n 10n
+*VinC 3 0 PULSE  0 2.5 2n 1.5n 1.5n 2.5n 10n
+
+*(1,1,1)->(0,0,0)
+*VinA 1 0 PULSE  2.5 0 2n 1.5n 1.5n 2.5n 10n
+*VinB 2 0 PULSE  2.5 0 2n 1.5n 1.5n 2.5n 10n
+*VinC 3 0 PULSE  2.5 0 2n 1.5n 1.5n 2.5n 10n
+
+*(1,1,1)->(0,0,1)
+*VinA 1 0 PULSE  2.5 0 2n 1.5n 1.5n 2.5n 10n
+*VinB 2 0 PULSE  2.5 0 2n 1.5n 1.5n 2.5n 10n
+*VinC 3 0 DC 2.5
+
+*(1,1,1)->(0,1,0)
+*VinA 1 0 PULSE  2.5 0 2n 1.5n 1.5n 2.5n 10n
+*VinB 2 0 DC 2.5
+*VinC 3 0 PULSE  2.5 0 2n 1.5n 1.5n 2.5n 10n
+
+*(1,1,1)->(1,0,0)
+*VinA 1 0 DC 2.5
+*VinB 2 0 PULSE  2.5 0 2n 1.5n 1.5n 2n 10n
+*VinC 3 0 PULSE  2.5 0 2n 1.5n 1.5n 2n 10n
+
+
+
+
+
+
+
+
+
+.TRAN 0.001n 10n
+.PROBE V(1) V(2) V(3) V(6)
+.PARAMS  r=4.81u, Wn=2u, Ld=5u
+.INC "tsmc025.sp"
+.END
+
