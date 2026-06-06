@@ -10,8 +10,9 @@ The project focuses on sub-micron CMOS technology (**TSMC 0.25µm**) and explore
 
 ## 📂 Project Repository Structure & File Guide
 
-In order the .cir file to run the LTspice software is required in your computer. 
-To understand the workflow alongside the final **PDF Report**, the code is mapped directly to the laboratory exercises:
+* In order the .cir file to run the LTspice software is required in your computer. 
+
+* To understand the workflow alongside the final **PDF Report**, the code is mapped directly to the laboratory exercises:
 
 * `/Section6_Delay/`
   * `6_1.cir` &rarr; **Section 6 - Exercise 1:** Exhaustive input vectors for a basic $NAND2$ gate.
@@ -21,6 +22,8 @@ To understand the workflow alongside the final **PDF Report**, the code is mappe
   * `7_2.cir` &rarr; **Section 7 - Exercise 2:** Critical operating window and total power analysis for the Full Adder complex gate.
 * `/Technology/`
    * `tsmc025.sp`  &rarr; Parameter values of nMOS and pMOS for the certain technology
+ 
+ * `/Assignement_4.pdf/` &arr; **PDF report.
 ---
 
 ## 🔬 Detailed Exercise Walkthrough & Methodology
