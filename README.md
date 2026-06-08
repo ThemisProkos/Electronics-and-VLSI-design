@@ -6,17 +6,23 @@ This repository contains my coursework projects from two courses in my universit
 
 
 electronics-and-vlsi-design/
-├── README.md # This file
-├── electronics_projects/
-│ └── nmos-pmos-analysis/
-│ ├── dc-characteristics.md
-│ ├── small-signal-analysis.md
-│ └── README.md
-└── vlsi assignments/
-├── assignment_1/
-├── assignment_2/
-├── assignment_3/
-├── assignment_4/
+│
+├── README.md                         # This file
+│
+├── electronics_projects/             # ECE214: Introduction to Electronics
+│   │
+│   ├── Project_1/                    # V-I Characteristics of NMOS & PMOS
+│   ├── Project_2/                    # Static (DC) CMOS Inverter Analysis
+│   ├── assignment_3/
+│   ├── assignment_4/
+│   └── assignment_5/
+│
+└── vlsi_assignments/                 # ECE327: Digital Systems VLSI
+    │
+    ├── assignment_1/
+    ├── assignment_2/
+    ├── assignment_3/
+    └── assignment_4/
 
 
 
