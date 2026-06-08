@@ -202,7 +202,7 @@ electronics-and-vlsi-design/
 
 | Tool | Purpose |
 |------|---------|
-| **NGSpice** | Circuit simulation and transistor characterization |
+| **NGSpice,LTSpice** | Circuit simulation and transistor characterization |
 | **Magic** | VLSI layout design and verification |
 | **Manual Analysis** | Small-signal modeling and transfer characteristic derivation |
 
