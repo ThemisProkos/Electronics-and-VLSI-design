@@ -120,37 +120,81 @@ electronics-and-vlsi-design/
 ---
 ---
 
-## VLSI Projects
+## VLSI Projects (ECE327: Digital Systems VLSI)
 
-### Project 1: Stick Diagrams
-**Objective:** Create stick diagrams to represent CMOS circuit layouts at the transistor level.
+### 1. CMOS Inverter Characterization & Design Analysis
+**Objective:** Characterize fundamental CMOS components using TSMC 0.25μm technology, including transistor I-V characteristics, threshold voltage, body effect, and inverter optimization for symmetry and power scaling.
 
-**Description:**
-- Visual representation of active and metal layers
-- Layout planning for basic logic gates (INVERTER, NAND, NOR)
-- Design rule checking and optimization
+**Topics Covered:**
+- Static I-V characteristics of NMOS and PMOS (\(I_{ds}\) vs. \(V_{gs}\), \(I_{ds}\) vs. \(V_{ds}\))
+- Instantaneous and average resistance modeling (\(R_{eqabs}\), \(R_{eqav}\))
+- Dynamic RC analysis through load capacitor charging/discharging
+- Threshold voltage (\(V_T\)) measurement and body effect in series-connected transistors
+- Voltage Transfer Characteristic (VTC) and noise margin extraction (\(V_{IL}\), \(V_{IH}\), \(V_{OL}\), \(V_{OH}\), \(NM_L\), \(NM_H\))
+- Symmetric inverter design (\(V_M = V_{DD}/2\)) via PMOS width optimization
+- Supply voltage scaling analysis (\(V_{DD}\) from 2.5V down to 0.7V) and power efficiency
 
-### Project 2: NGSpice Simulations
-**Objective:** Simulate and verify CMOS circuit behavior using NGSpice.
+**Key Findings:**
+- Electron mobility (\(\mu_n\)) is approximately 4.8–5× higher than hole mobility (\(\mu_p\)) in this process
+- Symmetric switching threshold achieved at \(W_p = 12\mu m\) with \(W_n = 2\mu m\) (\(k_n/k_p = 0.8\))
+- Reducing \(V_{DD}\) from 2.5V to 0.7V reduces average power from 17.5μW to 185pW
+- Lower supply voltages produce steeper VTC transitions, improving relative noise robustness
 
-**Description:**
-- Transistor-level netlist generation
-- DC, AC, and transient analysis
-- Performance verification against design specifications
+---
 
-### Project 3: Magic Software Layouts
-**Objective:** Design physical layouts using the Magic VLSI layout tool.
+### 2. Minimum-Area CMOS Inverter Layout (MAGIC)
+**Objective:** Design a minimum-area CMOS inverter layout using MAGIC VLSI tool, followed by SPICE simulation for propagation delay and rise/fall time characterization.
 
-**Description:**
-- Drawing metals, polysilicon, and active layers
-- Design rule compliance
-- Layout extraction and post-layout simulation
+**Topics Covered:**
+- Full-custom layout design with minimum transistor dimensions (\(W = 3\mu m\), \(L = 2\mu m\))
+- Vertical polysilicon gate routing and power rail implementation (VDD, GND)
+- n-well/p-well layers with substrate contacts
+- Layout extraction to SPICE netlist for connectivity verification
+- Propagation delay measurement (\(t_{pHL}\), \(t_{pLH}\)) using `.meas` directives
+- Rise and fall time characterization (10% to 90%)
 
-### Project 4: [Additional Project Name]
-**Objective:** [Brief description]
+**Key Findings:**
+- Proper substrate contacts are essential for preventing latch-up and ensuring correct device operation
+- Extracted netlists from MAGIC enable post-layout verification against schematic-level expectations
 
-**Description:**
-- [Key activities and outcomes]
+---
+
+### 3. CMOS Standard Cell Library: Logic Design, Layout & Elmore Delay
+**Objective:** Master the complete digital design flow from Boolean equations to optimal transistor sizing, stick diagram planning, full-custom mask layouts, and theoretical delay modeling using RC Elmore metric for multiple static CMOS gates.
+
+**Topics Covered:**
+- Static CMOS schematic derivation for AOI21, AOI22, OAI31, and Majority gates
+- Optimal transistor sizing to meet 6.5kΩ worst-case equivalent resistance constraint
+- Euler path identification for uninterrupted diffusion rails
+- Full-custom standard cell layout in MAGIC VLSI (SCMOS 0.25μm process, \(\lambda = 0.125\mu m\))
+- DRC verification and post-layout extraction to SPICE
+- Diffusion area analysis (\(AS\), \(AD\), \(PS\), \(PD\)) and junction capacitance calculation (\(C_{db}\))
+- Elmore delay modeling under Fan-Out 4 (FO4) loading
+
+**Key Findings:**
+- Optimal Euler paths eliminate diffusion breaks, significantly reducing parasitic junction capacitances
+- The worst-case discharge path determines the sizing vector for series-connected NMOS stacks
+- Elmore delay model accurately predicts propagation delay when internal node capacitances are properly extracted
+
+---
+
+### 4. CMOS Latches & Master-Slave Flip-Flops (Sequential Circuits)
+**Objective:** Design, simulate, and perform timing characterization of CMOS sequential storage elements, including a state-infiltration D-latch with weak inverter feedback and a negative-edge-triggered master-slave D flip-flop.
+
+**Topics Covered:**
+- Transmission-gate based D-latch design with weak inverter feedback for state retention
+- Negative-edge-triggered master-slave D flip-flop with clock buffering network
+- Transistor-level sizing: NMOS \(W_n = 3\mu m\), PMOS \(W_p = 9\mu m\)
+- Timing characterization matrix: clock-to-output delay (\(T_{PHL}\), \(T_{PLH}\)), rise/fall times
+- Setup time (\(T_{setup}\)) and hold time (\(T_{hold}\)) constraint extraction
+- Impact of input data transition time (\(t_{rf}(D)\)) and output load capacitance (\(C_Q\)) on performance
+
+**Key Findings:**
+- Weak inverter feedback provides state retention while allowing new data to overwrite when the transmission gate is active
+- Clock buffering (with progressive sizing \(\times 2\)) improves clock signal integrity and isolates the master stage from slave stage loading
+- Setup and hold time constraints vary significantly with input slew rate and output load capacitance
+
+---
 
 ---
 
