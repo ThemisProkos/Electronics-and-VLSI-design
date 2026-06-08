@@ -13,10 +13,11 @@ electronics-and-vlsi-design/
 │ ├── small-signal-analysis.md
 │ └── README.md
 └── vlsi assignments/
-├── project1-stick-diagrams/
-├── project2-ngspice-simulations/
-├── project3-magic-software-layouts/
-└── README.md
+├── assignment_1/
+├── assignment_2/
+├── assignment_3/
+├── assignment_4/
+
 
 
 
