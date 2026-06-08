@@ -31,15 +31,17 @@ electronics-and-vlsi-design/
 
 ---
 
-## Electronics Projects
+## Electronics Projects (ECE214: Introduction to Electronics)
 
-### NMOS/PMOS Transistor Analysis
+
+
+### 1. NMOS/PMOS Transistor Analysis (V-I Characteristics)
 **Objective:** Analyze the electrical behavior and characteristics of NMOS and PMOS transistors.
 
 **Topics Covered:**
 - DC transfer characteristics (I-V curves)
 - Operating regions (cutoff, linear, saturation)
-- Small-signal parameters (transconductance \( g_m \), output resistance \( r_o \))
+- Small-signal parameters (transconductance \(g_m\), output resistance \(r_o\))
 - Common-source amplifier configuration
 
 **Key Findings:**
@@ -47,6 +49,75 @@ electronics-and-vlsi-design/
 - Transconductance dependence on bias point
 - Comparison of NMOS vs. PMOS performance
 
+---
+
+### 2. CMOS Inverter Static Characterization (DC Analysis)
+**Objective:** Characterize the DC behavior of a CMOS inverter, including the voltage transfer characteristic (VTC), switching threshold, noise margins, and supply voltage sensitivity.
+
+**Topics Covered:**
+- Voltage Transfer Characteristic (VTC) and inverter gain
+- Switching threshold (\(V_M\)) dependence on \(k_n/k_p\) ratios
+- Noise margin calculation (\(NM_L\), \(NM_H\))
+- Transistor sizing for symmetric VTC (\(V_M = V_{DD}/2\))
+- Signal restoration in cascaded inverter chains
+- Minimum functional supply voltage (\(V_{DD(min)}\))
+
+**Key Findings:**
+- Symmetric VTC achieved by sizing \(W_p \approx 3.4 \times W_n\), compensating for mobility differences
+- Cascaded inverters act as signal regenerators, restoring full logic swing from noisy inputs
+- Minimum operational \(V_{DD} \approx 70\text{ mV}\) before switching behavior is lost
+
+---
+
+### 3. Transient Analysis & Propagation Delay in CMOS Circuits
+**Objective:** Study transient behavior of digital CMOS circuits, focusing on propagation delay optimization and the impact of transistor sizing and parasitic interconnect elements.
+
+**Topics Covered:**
+- Parametric scaling of transistor widths with constant \(W_p/W_n\) ratio
+- Trade-off between current drive capability and parasitic capacitances
+- Propagation delay dependence on \(C_{g2}/C_{g1}\) ratio
+- Distributed RC network modeling for interconnect lines
+- Subcircuit implementation in SPICE (`.subckt`)
+
+**Key Findings:**
+- Larger transistor widths increase drive current but also add parasitic capacitance, creating an optimal sizing point
+- Interconnect lines introduce significant delay overhead compared to ideal circuits
+- Modular subcircuit design preserves electrical behavior while improving netlist organization
+
+---
+
+### 4. CMOS Inverter Power & Energy Dissipation
+**Objective:** Quantify power and energy consumption in CMOS circuits, including average power, dynamic switching power, and energy per operation.
+
+**Topics Covered:**
+- Total average power calculation (\(P_T\))
+- Energy integration using SPICE `.MEASURE INTEG` directive
+- Power dynamics in symmetric inverters and complex gates
+- Impact of input transition times (rise/fall) on energy consumption
+
+**Key Findings:**
+- Power dissipation depends on switching activity, load capacitance, and supply voltage
+- Automated post-processing in SPICE enables accurate energy calculation via current waveform integration
+
+---
+
+### 5. Analog Amplifier Design: CS MOSFET & Multistage BJT
+**Objective:** Design, simulate, and analyze analog amplifier topologies, including a common-source (CS) MOSFET amplifier with active load and a multistage BJT amplifier.
+
+**Topics Covered:**
+- DC operating point calculation (\(V_{GS}\), \(V_{OV}\), \(V_{OUT}\))
+- Small-signal parameter extraction (\(g_m\), \(r_o\))
+- Midband voltage gain (\(A_M\)) and output resistance (\(R_{out}\))
+- Source degeneration and bypass capacitor effects on gain and bandwidth
+- Frequency response analysis (\(f_L\), \(f_H\), \(3\text{ dB}\) bandwidth)
+- Non-linear distortion and clipping
+
+**Key Findings:**
+- Unbypassed source degeneration reduces midband gain but improves bandwidth and linearity
+- Active current-source load maximizes voltage gain compared to resistive loading
+- Multistage BJT amplifiers have lower cutoff frequencies determined by coupling and bypass capacitors
+
+---
 ---
 
 ## VLSI Projects
