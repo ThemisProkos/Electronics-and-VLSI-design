@@ -1,9 +1,9 @@
 # Electronics and VLSI Design Projects
 
 ## Repository Description
-This repository contains my coursework projects from Electronics and VLSI Design, covering transistor-level device characterization and digital circuit layout design using industry-standard tools.
-
+This repository contains my coursework projects from two courses in my university curriculum: Introduction to Electronics (ECE214) and Digital Systems VLSI (ECE327). The work covers transistor-level device characterization and digital circuit layout design using industry-standard tools. A total of 9 assignments are saved in this repository — 5 related to the Introduction to Electronics course and 4 to VLSI Design. Although many topics discussed in the two courses overlap, the Electronics course introduces the fundamentals of circuits and CMOS analysis, while the VLSI course focuses more on the physical design of those circuits on silicon.
 ## Repository Structure
+
 
 electronics-and-vlsi-design/
 ├── README.md # This file
