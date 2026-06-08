@@ -197,48 +197,75 @@ electronics-and-vlsi-design/
 ---
 
 ---
-
-## Tools Used
+## 🛠 Tools Used
 
 | Tool | Purpose |
 |------|---------|
-| **NGSpice,LTSpice** | Circuit simulation and transistor characterization |
-| **Magic** | VLSI layout design and verification |
-| **Manual Analysis** | Small-signal modeling and transfer characteristic derivation |
+| **LTspice** | Analog circuit simulation, DC/transient/AC analysis, amplifier design |
+| **NGspice** | Digital and mixed-signal circuit simulation, `.meas` integration for power/energy calculations |
+| **Magic VLSI** | Full-custom CMOS layout design, DRC verification, netlist extraction |
+| **MATLAB** | Numerical verification for amplifier calculations |
+| **LaTeX** | Professional technical report writing |
 
 ---
 
-## Key Learnings
+## 📚 Key Learnings
 
-### Electronics
-- Understanding of MOS transistor physics and operation
-- Ability to extract small-signal parameters from DC characteristics
-- Analysis of basic amplifier configurations
+### Electronics (ECE214)
+- MOS transistor physics and I-V characteristic analysis (cutoff, linear, saturation regions)
+- Small-signal parameter extraction (\(g_m\), \(r_o\)) from DC characteristics
+- CMOS inverter static characterization: VTC, noise margins, switching threshold (\(V_M\))
+- Transistor sizing for symmetric VTC (\(V_M = V_{DD}/2\))
+- Propagation delay analysis and parametric scaling of transistor widths
+- RC interconnect modeling for parasitic delay estimation
+- Power and energy dissipation quantification using SPICE `.MEAS INTEG`
+- Common-source amplifier design with active current-source load
+- Frequency response analysis (lower/upper cutoff frequencies, \(3\text{ dB}\) bandwidth)
+- Source degeneration and bypass capacitor effects on gain/bandwidth
 
-### VLSI Design
-- CMOS circuit design from schematic to layout
-- Industry-standard tools (NGSpice, Magic)
-- Physical design constraints and design rules
+### VLSI Design (ECE327)
+- Full-custom CMOS layout design using Magic VLSI (SCMOS 0.25μm process)
+- Standard cell development: AOI21, AOI22, OAI31, Majority gates
+- Euler path identification for uninterrupted diffusion rails
+- Elmore delay modeling under Fan-Out 4 (FO4) loading
+- Parasitic capacitance extraction (\(C_{db}\)) from diffusion areas/perimeters
+- Sequential circuit design: transmission-gate D-latch, master-slave D flip-flop
+- Timing characterization: setup/hold time, clock-to-output delay (\(T_{PHL}\), \(T_{PLH}\))
+- Body effect analysis in series-connected MOSFETs
+- Supply voltage scaling and power efficiency trade-offs
 
 ---
 
-## How to Use This Repository
+## 📂 How to Use This Repository
 
-1. Navigate to the specific project folder:
-   - `electronics/nmos-pmos-analysis/` for transistor analysis
-   - `vlsi/` for VLSI design projects
+### 1. Navigate to the specific project folder:
 
-2. Each subfolder contains:
-   - Detailed README with project description
-   - Simulation files (where applicable)
-   - Results and analysis
+- **Electronics projects:** `electronics_projects/`
+- **VLSI assignments:** `vlsi_assignments/`
 
-3. To run NGSpice simulations:
-   ```bash
-   ngspice filename.spice
+### 2. Each subfolder contains:
 
-To open Magic layouts:
+| File Type | Description |
+|-----------|-------------|
+| `README.md` | Project description, objectives, and methodology |
+| `*.cir` / `*.spice` | SPICE netlists for simulation |
+| `*.mag` | Magic VLSI layout files |
+| `*.pdf` | Complete technical report with results and analysis |
 
+### 3. Running Simulations
+
+#### For LTspice (analog circuits):
+- Open the `.cir` file directly in LTspice
+- Run simulation (DC sweep, transient, or AC analysis)
+
+#### For NGspice (digital/sequential circuits):
 
 ```bash
-   magic layout.mag
+ngspice filename.spice
+
+```
+#### For Magic VLSI design 
+
+```bash
+export DISPLAY=":0"
+magic -T SCMOS layout.mag
