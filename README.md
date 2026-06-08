@@ -7,12 +7,12 @@ This repository contains my coursework projects from two courses in my universit
 
 electronics-and-vlsi-design/
 ├── README.md # This file
-├── electronics/
+├── electronics_projects/
 │ └── nmos-pmos-analysis/
 │ ├── dc-characteristics.md
 │ ├── small-signal-analysis.md
 │ └── README.md
-└── vlsi/
+└── vlsi assignments/
 ├── project1-stick-diagrams/
 ├── project2-ngspice-simulations/
 ├── project3-magic-software-layouts/
