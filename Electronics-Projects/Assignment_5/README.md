@@ -8,7 +8,7 @@ All simulations were verified using SPICE/LTspice, and numerical calculations we
 ---
 
 ## Repository Structure
-* `/simulations` - SPICE netlists and schematic files (`.asc`, `.raw`).
+* `/simulations` - SPICE netlists and schematic files ( `.cir`).
 * `/scripts` - MATLAB scripts used for numerical verification and calculations.
 * `Report.pdf` - The comprehensive technical report containing analytical derivations, simulation plots, and comparative discussions.
 
