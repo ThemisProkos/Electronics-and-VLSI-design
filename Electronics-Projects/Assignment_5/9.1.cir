@@ -1,0 +1,45 @@
+
+V_DD 100 0 2.5
+R_S 0 4 2255.3
+
+*for the 9.1 a,b,c questions
+*C_S 0 4 10u
+
+*For 9.1 d question
+C_S 0 4 {CS}
+
+R_D 5 100 522.47
+C_CI 2 3 10u
+
+
+R_G1 3 100 12.8MEG
+R_G2 0 3 30MEG
+
+*R_G1 3 100 1MEG
+*R_G2 0 3 3MEG
+
+C_CO 5 6 10u
+R_L 6 0 50k
+R_SIG 1 2 10k
+M_M1 5 3 4 4 NMOS L={L} W={W} AD={W*Ld} AS={W*Ld} PD={2*Ld+W} PS={2*Ld+W}
+
+*for d question only
+V_IN 1 0 AC 1Vac
+
+*for 9.1 c question only
+
+*V_IN 0 1 SIN(0 0.06 10k)
+
+.PARAM L=0.25u, W=305u, CS=10u,Ld=5u
+.INC "tsmc025.sp"
+
+*for 9.1 d question only
+.AC  DEC   20  0.15 0.65G
+
+*.TRAN 0.001
+
+*for 9.1 only b question
+*.op
+
+*for 9.1 d question only
+.STEP PARAM CS list 0 10u

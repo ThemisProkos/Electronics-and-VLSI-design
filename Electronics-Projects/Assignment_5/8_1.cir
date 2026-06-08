@@ -1,0 +1,25 @@
+*This line is used for 8.1 c,d,f,g,h question
+Vin 1 0 dc 0.399
+
+*This line is used for 8.1 h question
+*Vin 1 0 SINE(0.399 0.009 1k)
+Iref 5 0 dc 0.0001
+Vdd 3 0 dc 2.5
+
+M1 2 1 0 0 NMOS W={W1} L=0.25u AD={W1*Ld} AS={W1*Ld} PD={2*Ld+W1} PS={2*Ld+W1}
+M2 2 5 3 3 PMOS W={W2} L=0.25u AD={W2*Ld} AS={W2*Ld} PD={2*Ld+W2} PS={2*Ld+W2}
+M3 5 5 3 3 PMOS W={W2} L=0.25u AD={W2*Ld} AS={W2*Ld} PD={2*Ld+W2} PS={2*Ld+W2}
+
+.INC "tsmc025.sp"
+
+*Use this line for 8.1 c,d,f questions
+.dc Vin 0 2.5 0.001
+
+.PARAMS W1=20u,W2=24u,Ld=5u
+
+*This line is used for 8.1 g question (.op analysis)
+*.op
+
+*This line is used for 8.1 h question
+*.tran 0.01
+.PROBE V(2) V(1) Id(M1) Id(M2) Id(M3)
